@@ -1,7 +1,7 @@
 {
   "name": "paylink",
   "version": "0.0.1",
-  "description": "-",
+  "description": "The PayLink library provides convenient access to the PayLink API from applications written in JavaScript/Typescript",
   "engines": {
     "node": ">= 16.13 <17"
   },
