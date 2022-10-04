@@ -6,7 +6,7 @@ dotenv.config();
 export class PayLinkConfigs {
   /**  Setting the environment variable to the value of the ENVIRONMENT environment variable, or to DEV if
 the environment variable is not set. */
-  static environment: EnvironmentType = EnvironmentType[process.env.ENVIRONMENT ?? 'DEV'] ?? EnvironmentType.DEV;
+  static environment: EnvironmentType = EnvironmentType[process.env.ENVIRONMENT ?? 'TEST'] ?? EnvironmentType.TEST;
 
   /** Checking if the environment is production. */
   static isProd = this.environment === EnvironmentType.PROD;
