@@ -1,5 +1,5 @@
 {
-  "name": "@hadysata/paylink",
+  "name": "paylink",
   "version": "0.0.1",
   "description": "The PayLink library provides convenient access to the PayLink API from applications written in JavaScript/Typescript",
   "engines": {
@@ -27,6 +27,7 @@
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.json",
+    "prepublish": "tsc",
     "build:watch": "tsc && tsc --watch --preserveWatchOutput",
     "lint": "eslint . --ext .ts --ext .mts",
     "watch": "nodemon --ext ts,pug --ignore public",
@@ -47,7 +48,8 @@
     "npmrc": "^1.1.1",
     "tslib": "~2.4"
   },
-  "main": "index.ts",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hadysata/paylink-nodejs-sdk.git"

@@ -34,7 +34,7 @@ export class PayLink {
       return new PayLink(token!);
     } catch (error) {
       console.log(error);
-      throw new Error(`${error}`);
+      throw error;
     }
   }
 
