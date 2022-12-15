@@ -1,6 +1,6 @@
 {
   // You can always comment and uncomment lines in the config file.
-  "include": ["./src"],
+  "include": ["./src", "./examples"],
   "exclude": ["node_modules", "dist"],
 
   "compilerOptions": {

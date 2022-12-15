@@ -9,6 +9,7 @@ import {
   Invoice,
   SendDigitalProductBody,
 } from './index';
+import { PayLinkKeys } from './interfaces/paylink_keys';
 
 export class PayLink {
   constructor(public token: string) {
@@ -17,19 +18,23 @@ export class PayLink {
 
   /**  Enable merchant to login to paylink system and receive the token. This token is used by all other API requests. 
   
-   * It takes the API_ID and SECRET_KEY from the .env file and uses them to authenticate with the PayLink
+   * It takes the API_ID and SECRET_KEY either  provided by the user or from the .env file and uses them to authenticate with the PayLink
    * API
    * @returns A promise that resolves to a PayLink object.
    */
-  static async init(): Promise<PayLink> {
+  static async init({
+    apiId = process.env.API_ID,
+    secretKey = process.env.SECRET_KEY,
+    persistToken = false,
+  }: PayLinkKeys): Promise<PayLink> {
     try {
-      const data = {
-        apiId: process.env.API_ID,
-        persistToken: false,
-        secretKey: process.env.SECRET_KEY,
+      const authBody = <PayLinkKeys>{
+        apiId: apiId,
+        secretKey: secretKey,
+        persistToken: persistToken,
       };
 
-      const token = (await ApiHelper.post<AuthResponse>(Endpoint.auth, PayLinkConfigs.headers, data))?.id_token;
+      const token = (await ApiHelper.post<AuthResponse>(Endpoint.auth, PayLinkConfigs.headers, authBody))?.id_token;
 
       return new PayLink(token!);
     } catch (error) {

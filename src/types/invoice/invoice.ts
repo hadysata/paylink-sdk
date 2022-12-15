@@ -1,6 +1,6 @@
-import { OrderStatus } from '../enums/order_status';
-import { CreateNewInvoiceBody } from './create_new_invoice_body';
-import { PaymentErrors } from './payments_errors';
+import { OrderStatus } from '../../enums/order_status';
+import { CreateNewInvoiceBody } from './requests/create_new_invoice_body';
+import { PaymentErrors } from '../shared/payments_errors';
 
 export type Invoice = {
   /// The amount of the invoice in Paylink system

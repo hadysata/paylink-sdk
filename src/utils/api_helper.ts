@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
-import { PayLinkConfigs } from '../configs';
+import { PayLinkConfigs } from '../configs/configs';
 import { Endpoint } from '../enums/endpoints';
 
 export class ApiHelper {

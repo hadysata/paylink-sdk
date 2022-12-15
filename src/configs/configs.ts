@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import { EnvironmentType } from './enums/environment_type';
+import { EnvironmentType } from '../enums/environment_type';
 
 dotenv.config();
 
@@ -32,7 +32,7 @@ variable will be set to restapi.paylink.sa, otherwise it will be set to restpilo
    */
   static authHeaders(token: string) {
     const authHeaders = this.headers;
-    authHeaders['Authorization'] = `Bearer ${token}`;
+    authHeaders['Authorization'] = `${token}`;
 
     return authHeaders;
   }
